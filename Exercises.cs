@@ -92,6 +92,71 @@ namespace UnitTests
                 sum = sum/users.Count;
                 return sum;
         }
+
+        // Dado que a aplicação está preparada. Quando o usuário chamar o exercício 5,
+        // então a aplicação deverá retornar a porcentagem dos números entre 18 e 35.
+        public double Exercise05(List<double> women)
+        {
+            var percent = 0.0;
+            foreach (var age in women)
+            {
+               if (age >= 18 && age <= 35){percent++;}
+
+            }
+
+            return (100.0/women.Count)*percent;
+        }
+
+        public void Exerfcise06()
+        {
+           // var winner = candidates[0];
+            // var isDraw = false;
+            // var drawCandidates = winner.name;
+
+            // for (int i = 1; i < candidates.Length; i++)
+            // {
+            //     var currentCandidate = candidates[i];
+
+            //     if (currentCandidate.votes > winner.votes)
+            //     {
+            //         winner = currentCandidate;
+            //         drawCandidates = currentCandidate.name;
+            //     }
+            //     else if (currentCandidate.votes == winner.votes)
+            //     {
+            //         isDraw = true;
+            //         drawCandidates += $", {currentCandidate.name}";
+            //     }
+            // }
+
+			// if (isDraw)
+			// {
+			// 	System.Console.WriteLine($"Segundo turno entre: {drawCandidates}!");
+			// }
+			// else
+			// {
+			// 	System.Console.WriteLine($"O vencedor é: {winner.name}");
+			// 	System.Console.WriteLine($"Com o total de: {winner.votes} votos!");
+			// } 
+        }
+
+        public double Exercise07(double cigDay, double years, double price)
+        {
+            return ((cigDay*price/20)*365)*years;
+        }
+
+        public IEnumerable<int> Exercise17(int number)
+		{
+            // Imprimir a tabuada de qualquer número fornecido pelo usuário.
+            // DADO que a aplicação esteja pronta, QUANDO o usuário informar um número
+            // DEVE retornar a tabuada de 1 a 10
+
+            var multiplicationTable = new List<int>(){
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+            };
+
+            return multiplicationTable.Select(item => item * number);
+		}
             
         
     }

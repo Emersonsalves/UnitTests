@@ -118,23 +118,61 @@ namespace UnitTests
             Assert.Equal(odd, result);
         }
 
-            [Theory]
-            [InlineData(new int[2]{18,22},20)]
-            [InlineData(new int[5]{18,22,33,36,41},30)]
+        [Theory]
+        [InlineData(new int[2]{18,22},20)]
+        [InlineData(new int[5]{18,22,33,36,41},30)]
 
-            public void Should_return_average(int[] users, double expected)
-            {
-                // Dado que a aplicação está preparada. Quando o usuário chamar o exercício 4,
-                // então a aplicação deverá retornar a média de idade dos alunos na sala.
+        public void Should_return_average(int[] users, double expected)
+        {
+            // Dado que a aplicação está preparada. Quando o usuário chamar o exercício 4,
+            // então a aplicação deverá retornar a média de idade dos alunos na sala.
                 
-                var exercises = new Exercises();
+            var exercises = new Exercises();
                 
-                //Quando / Ação
-                var returnedValue = exercises.Exercise04(users.ToList());
+            //Quando / Ação
+            var returnedValue = exercises.Exercise04(users.ToList());
                 
-                // Deve / Asserções
-                Assert.Equal(expected, returnedValue);
-            }
+            // Deve / Asserções
+            Assert.Equal(expected, returnedValue);
+        }
+
+        [Theory]
+        [InlineData(new double[5]{45, 23, 14, 35, 18}, 60)]
+        [InlineData(new double[8]{45, 23, 14, 35, 18, 89, 25, 32}, 62.5)]
+        public void should_return_percentage_of_ages_between_18_and_35(double[] ages, double expected)
+        {
+            var exercises = new Exercises();
+
+            double result = exercises.Exercise05(ages.ToList());
+
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [InlineData(4, 23, 2.50, 4197.5)]
+        public void should_return_4197_dot_5(double cigDay, double years, double price, double expected)
+        {
+            var exercises = new Exercises();
+
+            var result = exercises.Exercise07(cigDay, years, price);
+
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [InlineData(6, new int[10]{6, 12, 18, 24, 30, 36, 42, 48, 54, 60})]
+        [InlineData(5, new int[10]{5, 10, 15, 20, 25, 30, 35, 40, 45, 50})]
+        public void should_return_the_input_multiplied_by_1_to_10(int number, int[] expectedResult)
+        {
+            // Dado / Setup
+            var exercises = new Exercises();
+            
+            // Quando / Ação
+            var result = exercises.Exercise17(number);
+
+            // Deve / Asserções
+            Assert.Equal(result, expectedResult);
+        }
 
 
     }
